@@ -1,0 +1,18 @@
+[Unit]
+Description=Grimmory Self-Hosted Ebook Library Manager
+After=remote-fs.target network.target mariadb.service
+Requires=mariadb.service
+
+[Service]
+User=grimmory
+Group=grimmory
+Type=simple
+WorkingDirectory=/usr/share/webapps/grimmory
+EnvironmentFile=/etc/grimmory/grimmory.conf
+ExecStart=java -jar /usr/share/webapps/grimmory/grimmory.jar
+TimeoutStopSec=20
+KillMode=control-group
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
