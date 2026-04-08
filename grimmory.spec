@@ -12,12 +12,12 @@ Source3:        grimmory.tmpfiles
 Source4:        grimmory.conf
 
 BuildRequires:  java-25-openjdk-devel
-BuildRequires:  yarn
+BuildRequires:  yarnpkg
 BuildRequires:  systemd-units
 BuildRequires:  systemd-rpm-macros
 %{?sysusers_requires_compat}
 
-Requires:       java-25-openjdk-headless
+Requires:       java-headless >= 1:25
 Requires:       mariadb-server
 Requires:       fontconfig
 Requires:       dejavu-sans-fonts
