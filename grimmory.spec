@@ -39,6 +39,7 @@ Grimmory is a self-hosted application for managing your entire book collection i
 %setup -q
 
 %build
+export NODE_OPTIONS="--max-old-space-size=8192"
 # Build web UI
 cd booklore-ui
 npm install
