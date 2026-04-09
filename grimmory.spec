@@ -97,3 +97,5 @@ echo -e "\033[1;34mINFO\033[0m\033[1m:     * To access, go to localhost:8095/\03
 %dir %attr(0755,grimmory,grimmory) %{_sharedstatedir}/%{name}
 
 %changelog
+* Thu Apr 09 2026 Gasiyu <copr@ngoding.id> - 2.3.0-1
+- Initial release
