@@ -12,7 +12,12 @@ Source3:        grimmory.tmpfiles
 Source4:        grimmory.conf
 
 BuildRequires:  java-25-openjdk-devel
-BuildRequires:  yarnpkg
+%if 0%{?fedora} >= 44
+BuildRequires:  nodejs, /usr/bin/node, /usr/bin/npm
+%else
+BuildRequires:  nodejs20
+BuildRequires:  nodejs-npm
+%endif
 BuildRequires:  systemd-units
 BuildRequires:  systemd-rpm-macros
 %{?sysusers_requires_compat}
@@ -36,9 +41,8 @@ Grimmory is a self-hosted application for managing your entire book collection i
 %build
 # Build web UI
 cd booklore-ui
-yarn install
-export NODE_OPTIONS="--max-old-space-size=4096"
-yarn build
+npm install
+npm run build
 cd ..
 
 # Build server
